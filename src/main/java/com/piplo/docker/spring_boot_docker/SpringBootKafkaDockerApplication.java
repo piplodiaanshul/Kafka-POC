@@ -6,7 +6,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @SpringBootApplication
 @EnableMongoRepositories
-//@ComponentScan(basePackageClasses = MainController.class)
 public class SpringBootKafkaDockerApplication {
 
 	public static void main(String[] args) {
