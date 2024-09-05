@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +30,7 @@ public class GroceryProducers {
             aGroceryItem.setId(UUID.randomUUID().toString());
             String aGroceryItemStringify = Mapper.toString(aGroceryItem);
             ProducerRecord<String, String> producerRecord = new ProducerRecord<>(TopicNames.GROCERY_TOPIC, aGroceryItem.getId(), aGroceryItemStringify);
-            if(doProduceByKafkaTemplate) {
+            if (doProduceByKafkaTemplate) {
                 log.info("[KAFKA] [PRODUCER] sending message using kafka-template");
                 kafkaTemplate.send(producerRecord);
             } else {

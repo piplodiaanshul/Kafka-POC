@@ -4,12 +4,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.piplo.docker.spring_boot_docker.groceries.GroceryItem;
 import lombok.experimental.UtilityClass;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
 
 @UtilityClass
 public class Mapper {
 
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+
     public static String toString(GroceryItem aGroceryItem) {
         try {
             return new ObjectMapper().writeValueAsString(aGroceryItem);

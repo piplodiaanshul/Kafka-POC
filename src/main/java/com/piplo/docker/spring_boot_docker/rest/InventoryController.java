@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/v1")
 public class InventoryController {
 
-    private static volatile boolean IS_KAFKA_ON = true;
+    private static final boolean IS_KAFKA_ON = true;
     @Autowired
     private ItemRepository itemRepository;
     @Autowired
@@ -31,7 +31,7 @@ public class InventoryController {
 
     @PostMapping("/groceries")
     public ResponseEntity<?> getGroceries(@RequestBody GroceryItem groceryItem) {
-        if(IS_KAFKA_ON) {
+        if (IS_KAFKA_ON) {
             groceryProducers.producer(List.of(groceryItem));
             return ResponseEntity.accepted().body("Item will be saved!");
         }

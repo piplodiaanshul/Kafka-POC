@@ -30,12 +30,12 @@ public class MyKafkaConfigBeans {
         return new KafkaProducer<>(properties);
     }
 
-   /* Note: Used this as singleton bean of Kafka-consumer will be created.
-    Not and idle method to crate bean, as its singleton and consumer require to subscribe to multiple topics
-    Note: WRONG - single instance of consumer is good idea, BUT each kind of consumer subscribes to a specific set of Topic,
-    MUST create separate consumer bean for consuming particular group/single topic subscription
-    */
-   @Bean
+    /* Note: Used this as singleton bean of Kafka-consumer will be created.
+     Not and idle method to crate bean, as its singleton and consumer require to subscribe to multiple topics
+     Note: WRONG - single instance of consumer is good idea, BUT each kind of consumer subscribes to a specific set of Topic,
+     MUST create separate consumer bean for consuming particular group/single topic subscription
+     */
+    @Bean
     @Deprecated
     public KafkaConsumer<String, String> initKafkaConsumer() {
         Properties properties = new Properties();
@@ -68,8 +68,8 @@ public class MyKafkaConfigBeans {
     }
 
     @Bean
-    public ConsumerFactory<String,String> groceryConsumerFactory() {
-        Map<String, Object> consumerConfig =  new HashMap<>();
+    public ConsumerFactory<String, String> groceryConsumerFactory() {
+        Map<String, Object> consumerConfig = new HashMap<>();
         consumerConfig.put("key.deserializer", StringDeserializer.class.getName());
         consumerConfig.put("value.deserializer", StringDeserializer.class.getName());
         consumerConfig.put("bootstrap.servers", "localhost:9093");
