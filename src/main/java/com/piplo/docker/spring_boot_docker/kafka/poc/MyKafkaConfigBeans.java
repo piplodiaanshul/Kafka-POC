@@ -18,7 +18,7 @@ import java.util.Properties;
 public class MyKafkaConfigBeans {
 
     //Note: Used this as singleton bean of Kafka-producer will be created.
-    //Note: Implemented using only org.apache.kafka.clients.producer | Spring has also build wrapper around for ease of use with Producer/Consumer-Factories, kafkaTemplate and Annotations
+    //Note: Implemented using only org.apache.kafka.clients.producer | Spring has also built wrapper around for ease of use with Producer/Consumer-Factories, kafkaTemplate and Annotations
     @Bean
     @Deprecated
     public KafkaProducer<String, String> initKafkaProducer() {
